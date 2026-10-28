@@ -1,0 +1,30 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+*{box-sizing:border-box;margin:0}body{background:#0b0a10;color:#f1edf7;font-family:"Syne",sans-serif;overflow:hidden}
+.glow{position:absolute;inset:0;background:radial-gradient(60% 70% at 85% 0%,rgba(255,77,141,.18),transparent 60%)}
+.mono{font-family:"JetBrains Mono",monospace}
+
+.badge{display:inline-flex;align-items:center;gap:12px;padding:10px 22px;border-radius:999px;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+.badge i{width:14px;height:14px;border-radius:50%;background:currentColor}
+</style></head><body><div id="v"></div>
+<script>
+const LOGO = (s) => `<svg width="${s}" height="${s}" viewBox="0 0 64 64"><rect width="64" height="64" rx="16" fill="#ff4d8d"/><rect x="13" y="22" width="5" height="27" rx="2.5" fill="#140610"/><rect x="46" y="22" width="5" height="27" rx="2.5" fill="#140610"/><circle cx="15.5" cy="19" r="4.5" fill="#140610"/><circle cx="48.5" cy="19" r="4.5" fill="#140610"/><rect x="8" y="48" width="15" height="5" rx="2.5" fill="#140610"/><rect x="41" y="48" width="15" height="5" rx="2.5" fill="#140610"/><path d="M18 27C24 40 40 40 46 27" fill="none" stroke="#140610" stroke-width="4.2" stroke-linecap="round"/><circle cx="32" cy="36.5" r="3" fill="#ff4d8d"/></svg>`;
+const trail = (w, op) => `<svg class="trail" width="${w}" viewBox="0 0 160 40" style="opacity:${op}"><g fill="#ff4d8d"><circle cx="12" cy="8" r="4"/><circle cx="148" cy="8" r="4"/><rect x="10" y="10" width="4" height="26" rx="2"/><rect x="146" y="10" width="4" height="26" rx="2"/></g><path d="M14 14C50 34 110 34 146 14" fill="none" stroke="#ff4d8d" stroke-width="4" stroke-linecap="round"/></svg>`;
+const v = location.hash.slice(1);
+const el = document.getElementById('v');
+if (v === 'avatar') { document.body.style.background = '#ff4d8d'; el.innerHTML = `<svg width="400" height="400" viewBox="-2 -2 68 68"><rect x="13" y="22" width="5" height="27" rx="2.5" fill="#140610"/><rect x="46" y="22" width="5" height="27" rx="2.5" fill="#140610"/><circle cx="15.5" cy="19" r="4.5" fill="#140610"/><circle cx="48.5" cy="19" r="4.5" fill="#140610"/><rect x="8" y="48" width="15" height="5" rx="2.5" fill="#140610"/><rect x="41" y="48" width="15" height="5" rx="2.5" fill="#140610"/><path d="M18 27C24 40 40 40 46 27" fill="none" stroke="#140610" stroke-width="4.2" stroke-linecap="round"/><circle cx="32" cy="36.5" r="3" fill="#ff4d8d"/></svg>`; }
+if (v === 'header') el.innerHTML = `<div style="position:relative;width:1500px;height:500px;padding:0 120px;display:flex;align-items:center;justify-content:space-between"><div class="glow"></div>
+  <div style="position:relative;padding-left:330px"><div class="mono" style="font-size:22px;letter-spacing:.12em;color:#847c96;text-transform:uppercase">Token checks for AI agents · Solana</div><div style="font-size:92px;font-weight:800;letter-spacing:-.045em;line-height:.95;margin-top:16px">Not every token<br><span style="color:#ff4d8d">gets in</span>.</div></div>
+  <div style="position:absolute;right:120px;bottom:70px">${trail(360, .55)}</div></div>`;
+if (v === 'og') el.innerHTML = `<div style="position:relative;width:1200px;height:630px;padding:70px 80px;display:flex;flex-direction:column;justify-content:space-between"><div class="glow"></div>
+  <div style="position:relative;display:flex;align-items:center;gap:20px">${LOGO(76)}<span style="font-size:54px;font-weight:800;letter-spacing:-.03em">Bouncer</span></div>
+  <div style="position:relative"><div style="font-size:96px;font-weight:800;letter-spacing:-.045em;line-height:.93">Not every token<br><span style="color:#ff4d8d">gets in</span>.</div>
+  <div class="mono" style="font-size:26px;color:#c4bdd3;margin-top:26px">Token checks for AI agents · MCP · Solana · pump.fun</div></div>
+  <div style="position:absolute;right:80px;top:80px;display:flex;flex-direction:column;gap:14px;align-items:flex-end">
+   <span class="badge" style="color:#5ee6a0;background:rgba(94,230,160,.12);font-size:26px"><i></i>Admitted</span>
+   <span class="badge" style="color:#ffc14d;background:rgba(255,193,77,.12);font-size:26px"><i></i>Hold</span>
+   <span class="badge" style="color:#ff5c6a;background:rgba(255,92,106,.13);font-size:26px"><i></i>Denied</span></div>
+  <div style="position:absolute;right:70px;bottom:150px">${trail(260, .5)}</div></div>`;
+if (v === 'logo') { el.innerHTML = `<div style="width:600px;height:600px;display:grid;place-items:center;background:#0b0a10">${LOGO(480)}</div>`; }
+</script></body></html>
